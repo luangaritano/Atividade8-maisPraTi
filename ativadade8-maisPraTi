@@ -1,0 +1,74 @@
+// 1. Calculadora Simples
+function calcular() {
+    let num1 = parseFloat(prompt("Digite o primeiro número:"));
+    let operador = prompt("Digite o operador (+, -, *, /):");
+    let num2 = parseFloat(prompt("Digite o segundo número:"));
+    let resultado;
+    
+    switch (operador) {
+        case '+': resultado = num1 + num2; break;
+        case '-': resultado = num1 - num2; break;
+        case '*': resultado = num1 * num2; break;
+        case '/': resultado = num2 !== 0 ? num1 / num2 : "Erro: divisão por zero"; break;
+        default: resultado = "Operador inválido";
+    }
+    
+    alert(`Resultado: ${resultado}`);
+}
+
+// 2. Verificar Palíndromo
+function ehPalindromo() {
+    let palavra = prompt("Digite uma palavra:").toLowerCase();
+    let invertida = palavra.split('').reverse().join('');
+    alert(palavra === invertida ? "É um palíndromo!" : "Não é um palíndromo.");
+}
+
+// 3. Sequência de Fibonacci
+function fibonacci() {
+    let n = parseInt(prompt("Quantos números da sequência de Fibonacci deseja ver?"));
+    let fib = [0, 1];
+    for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+    alert(`Sequência de Fibonacci: ${fib.slice(0, n).join(', ')}`);
+}
+
+// 4. Inverter Número
+function inverterNumero() {
+    let numero = prompt("Digite um número inteiro:");
+    let invertido = numero.split('').reverse().join('');
+    alert(`Número invertido: ${invertido}`);
+}
+
+// 5. Verificar Anagramas
+function ehAnagrama() {
+    let palavra1 = prompt("Digite a primeira palavra:").toLowerCase();
+    let palavra2 = prompt("Digite a segunda palavra:").toLowerCase();
+    
+    let ordenada1 = palavra1.split('').sort().join('');
+    let ordenada2 = palavra2.split('').sort().join('');
+    
+    alert(ordenada1 === ordenada2 ? "São anagramas!" : "Não são anagramas.");
+}
+
+// 6. Jogo de Adivinhação
+function jogoAdivinhacao() {
+    let numeroSecreto = Math.floor(Math.random() * 50) + 1;
+    let tentativa;
+    while (tentativa !== numeroSecreto) {
+        tentativa = parseInt(prompt("Adivinhe o número entre 1 e 50:"));
+        if (tentativa === numeroSecreto) {
+            alert("Parabéns! Você acertou o número.");
+            break;
+        } else {
+            alert("Tente novamente!");
+        }
+    }
+}
+
+// 7. Contar Palavras
+function contarPalavras() {
+    let frase = prompt("Digite uma frase:");
+    let palavras = frase.trim().split(/\s+/);
+    alert(`A frase contém ${palavras.length} palavras.`);
+}
